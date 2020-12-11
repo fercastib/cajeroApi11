@@ -8,17 +8,18 @@ from models.transaction_models import TransactionIn,TransactionOut
 import datetime
 from fastapi import FastAPI
 from fastapi import HTTPException
+
 api = FastAPI()
 
-from fastapi.middleware.cors import CORSMiddleware
 origins = [
-"http://localhost.tiangolo.com", "https://localhost.tiangolo.com",
-"http://localhost", "http://localhost:8080", "https://cajeromintic.herokuapp.com"
-
+    "http://localhost.tiangolo.com", "https://localhost.tiangolo.com",
+    "http://localhost", "http://localhost:8080",
+    "https://cajeromintic.herokuapp.com"
 ]
+
 api.add_middleware(
-CORSMiddleware, allow_origins=origins,
-allow_credentials=True, allow_methods=["*"], allow_headers=["*"],
+    CORSMiddleware, allow_origins=origins,
+    allow_credentials=True, allow_methods=["*"], allow_headers=["*"],
 )
 
 @api.post("/user/auth/")
